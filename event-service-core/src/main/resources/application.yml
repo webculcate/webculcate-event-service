@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: EVENT_SERVICE_CORE
