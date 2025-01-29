@@ -1,3 +1,30 @@
 spring:
   application:
     name: EVENT_SERVICE_CORE
+  datasource:
+    url: ${DATA_SOURCE_URL}
+    username: ${DATA_SOURCE_USERNAME}
+    password: ${DATA_SOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: ${SERVER_PORT}
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${REGISTRY_PATH}
+
+application:
+  proxy:
+    enabled: true
+  bulk:
+    request:
+      user:
+        limit: 20
