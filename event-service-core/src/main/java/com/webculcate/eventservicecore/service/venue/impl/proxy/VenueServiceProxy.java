@@ -3,6 +3,7 @@ package com.webculcate.eventservicecore.service.venue.impl.proxy;
 import com.webculcate.eventservicecore.exception.venue.InvalidVenueCreationRequestException;
 import com.webculcate.eventservicecore.model.dto.venue.VenueCreationRequest;
 import com.webculcate.eventservicecore.model.dto.venue.VenueCreationResponse;
+import com.webculcate.eventservicecore.model.dto.venue.VenueDto;
 import com.webculcate.eventservicecore.service.venue.IVenueService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
@@ -24,6 +25,11 @@ public class VenueServiceProxy implements IVenueService {
     private final Validator serviceValidator;
 
     private final IVenueService venueService;
+
+    @Override
+    public VenueDto getVenue(Long id) {
+        return venueService.getVenue(id);
+    }
 
     @Override
     public VenueCreationResponse createVenue(VenueCreationRequest request) {

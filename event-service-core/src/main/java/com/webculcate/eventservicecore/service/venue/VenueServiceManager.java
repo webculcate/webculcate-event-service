@@ -21,7 +21,7 @@ public class VenueServiceManager {
     @Value(PROXY_ENABLED)
     private boolean proxyEnabled;
 
-    public IVenueService getUserService() {
+    public IVenueService getVenueService() {
         if (proxyEnabled)
             return serviceMap.get(VENUE_SERVICE_PROXY);
         else
