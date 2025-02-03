@@ -1,5 +1,6 @@
 package com.webculcate.eventservicecore.model.entity;
 
+import com.webculcate.eventservicecore.constant.ScheduledEventStatus;
 import com.webculcate.eventservicecore.model.entity.embedded.TimeLog;
 import com.webculcate.eventservicecore.model.entity.embedded.TimeRange;
 import jakarta.persistence.*;
@@ -53,9 +54,12 @@ public class ScheduledEvent {
 
     private Set<String> organisedBy;
 
+    private ScheduledEventStatus status;
+
     @Embedded
     private TimeLog timeLog;
 
     @Version
     private Long version;
+
 }

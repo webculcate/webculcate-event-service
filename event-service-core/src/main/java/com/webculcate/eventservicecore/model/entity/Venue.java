@@ -41,4 +41,8 @@ public class Venue {
 
     @Version
     private Long version;
+
+    public Venue(Long venueId) {
+
+    }
 }

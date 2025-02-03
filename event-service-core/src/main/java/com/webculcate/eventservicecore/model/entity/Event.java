@@ -43,4 +43,8 @@ public class Event {
 
     @Version
     private Long version;
+
+    public Event(Long eventId) {
+
+    }
 }
