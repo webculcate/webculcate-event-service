@@ -8,7 +8,9 @@ import lombok.RequiredArgsConstructor;
 public enum APIMetadata {
 
     VENUE_CREATION("Venue creation successful", "Venue creation failed"),
-    VENUE_MODIFICATION("Venue updated successfully", "Failed to update venue");
+    VENUE_MODIFICATION("Venue updated successfully", "Failed to update venue"),
+    EVENT_CREATION("Event creation successful", "Event creation failed"),
+    EVENT_MODIFICATION("Event updated successfully", "Failed to update event");
 
     private final String successMessage;
 

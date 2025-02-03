@@ -1,4 +1,4 @@
-package com.webculcate.eventservicecore.controller;
+package com.webculcate.eventservicecore.controller.venue;
 
 import com.webculcate.eventservicecore.model.dto.venue.*;
 import com.webculcate.eventservicecore.service.venue.IVenueService;
