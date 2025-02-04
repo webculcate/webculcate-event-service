@@ -1,11 +1,7 @@
 package com.webculcate.eventservicecore.controller.scheduledevent;
 
-import com.webculcate.eventservicecore.model.dto.event.EventCreationRequest;
-import com.webculcate.eventservicecore.model.dto.event.EventCreationResponse;
-import com.webculcate.eventservicecore.model.dto.event.EventDto;
-import com.webculcate.eventservicecore.model.dto.scheduledevent.CreateEventScheduleRequest;
-import com.webculcate.eventservicecore.model.dto.scheduledevent.ScheduledEventDto;
-import com.webculcate.eventservicecore.model.dto.scheduledevent.ScheduledEventResponse;
+import com.webculcate.eventservicecore.model.dto.event.*;
+import com.webculcate.eventservicecore.model.dto.scheduledevent.*;
 import com.webculcate.eventservicecore.service.event.IEventService;
 import com.webculcate.eventservicecore.service.scheduledevent.EventSchedulerServiceManager;
 import com.webculcate.eventservicecore.service.scheduledevent.IEventSchedulerService;
@@ -28,10 +24,22 @@ public class ScheduledEventController {
         return new ResponseEntity<>(service.getScheduledEvent(id), OK);
     }
 
+    @GetMapping("/conflicts")
+    public ResponseEntity<EventConflictResponse> getEventConflicts(@RequestBody TimeRangeDto timeRange) {
+        IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
+        return new ResponseEntity<>(service.getEventConflicts(timeRange), OK);
+    }
+
     @PostMapping
     public ResponseEntity<ScheduledEventResponse> scheduleEvent(@RequestBody CreateEventScheduleRequest request) {
         IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
         return new ResponseEntity<>(service.scheduleEvent(request), OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<ScheduledEventResponse> updateEvent(@RequestBody UpdateEventScheduleRequest request) {
+        IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
+        return new ResponseEntity<>(service.updateEventSchedule(request), OK);
     }
 
 }

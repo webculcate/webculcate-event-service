@@ -1,7 +1,6 @@
 package com.webculcate.eventservicecore.model.dto.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.webculcate.eventservicecore.model.dto.venue.VenueDto;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,15 +15,15 @@ public class EventCreationResponse {
 
     private String message;
 
-    private EventDto venue;
+    private EventDto event;
 
-    public EventCreationResponse(String message, EventDto venue) {
+    public EventCreationResponse(String message, EventDto event) {
         this.message = message;
-        this.venue = venue;
+        this.event = event;
     }
 
-    public EventCreationResponse(EventDto venue) {
-        this.venue = venue;
+    public EventCreationResponse(EventDto event) {
+        this.event = event;
         this.message = EVENT_CREATION.getSuccessMessage();
     }
 }

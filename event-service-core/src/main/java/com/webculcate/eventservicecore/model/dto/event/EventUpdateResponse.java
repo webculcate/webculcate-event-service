@@ -4,8 +4,8 @@ import static com.webculcate.eventservicecore.constant.APIMetadata.EVENT_MODIFIC
 
 public class EventUpdateResponse extends EventCreationResponse {
 
-    public EventUpdateResponse(EventDto venue) {
-        super(EVENT_MODIFICATION.getSuccessMessage(), venue);
+    public EventUpdateResponse(EventDto event) {
+        super(EVENT_MODIFICATION.getSuccessMessage(), event);
     }
 
 }
