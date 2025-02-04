@@ -8,11 +8,13 @@ import com.webculcate.eventservicecore.model.entity.Event;
 import com.webculcate.eventservicecore.model.entity.Venue;
 import com.webculcate.eventservicecore.model.entity.embedded.TimeLog;
 import com.webculcate.eventservicecore.model.entity.embedded.TimeRange;
+import com.webculcate.eventservicecore.model.external.user.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -30,7 +32,7 @@ public class ScheduledEventDto {
 
     private TimeRange timeRange;
 
-    private Set<String> organisedBy;
+    private List<UserDto> organisedBy;
 
     private ScheduledEventStatus status;
 

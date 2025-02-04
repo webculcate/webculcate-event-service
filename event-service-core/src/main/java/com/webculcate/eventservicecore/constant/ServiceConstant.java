@@ -25,4 +25,7 @@ public class ServiceConstant {
     public static final String PROXY_ENABLED = "${application.proxy.enabled}";
 
     public static final String STRING_SPACE = " ";
+
+    // external
+    public static final String USER_SERVICE_NAME = "USER_SERVICE_CORE";
 }
