@@ -11,6 +11,6 @@ import java.util.Set;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserBulkRequest {
 
-    private Set<String> userIdSet;
+    private Set<Long> userIdSet;
 
 }

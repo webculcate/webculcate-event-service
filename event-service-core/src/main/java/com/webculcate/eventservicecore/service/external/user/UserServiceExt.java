@@ -19,7 +19,7 @@ public class UserServiceExt {
     
     private final UserServiceClient userServiceClient;
     
-    public List<UserDto> resolveUsers(Set<String> userIds) {
+    public List<UserDto> resolveUsers(Set<Long> userIds) {
         if(userIds.isEmpty())
             return Collections.EMPTY_LIST;
         List<UserDto> userDtoList = getUserDtoBulk(userIds);
@@ -29,7 +29,7 @@ public class UserServiceExt {
         return userDtoList;
     }
 
-    private List<UserDto> getUserDtoBulk(Set<String> userIds) {
+    private List<UserDto> getUserDtoBulk(Set<Long> userIds) {
         ResponseEntity<UserBulkResponse> response = userServiceClient.getUserBulk(new UserBulkRequest(userIds));
         Optional<List<UserDto>> optionalUserDtoList = nullHandledExtraction(() -> response.getBody().getUserList());
         return optionalUserDtoList.orElse(Collections.EMPTY_LIST);

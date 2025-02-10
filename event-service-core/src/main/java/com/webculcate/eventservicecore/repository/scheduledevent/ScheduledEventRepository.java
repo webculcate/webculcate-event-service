@@ -14,9 +14,9 @@ public interface ScheduledEventRepository extends JpaRepository<ScheduledEvent, 
 
     Optional<ScheduledEvent> findByScheduledEventId(Long scheduleId);
 
-    @Query("SELECT * FROM ScheduledEvent se WHERE" +
-            " :startTime BETWEEN se.startTime AND se.endTime OR" +
-            " :endTime BETWEEN se.startTime AND se.endTime")
+    @Query("SELECT se FROM ScheduledEvent se WHERE" +
+            " :startTime BETWEEN se.timeRange.startTime AND se.timeRange.endTime OR" +
+            " :endTime BETWEEN se.timeRange.startTime AND se.timeRange.endTime")
     Optional<List<ScheduledEvent>> findAll(@Param("startTime") Long startTime, @Param("endTime") Long endTime);
 
 }

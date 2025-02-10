@@ -8,8 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import static com.webculcate.eventservicecore.constant.ServiceConstant.EVENT_SEQUENCE_NAME;
-import static com.webculcate.eventservicecore.constant.ServiceConstant.EVENT_TABLE_NAME;
+import static com.webculcate.eventservicecore.constant.ServiceConstant.*;
 
 @Data
 @Builder
@@ -36,7 +35,7 @@ public class Event {
 
     private String eventDescription;
 
-    private String createdBy;
+    private Long createdBy;
 
     @Embedded
     private TimeLog timeLog;
@@ -44,7 +43,8 @@ public class Event {
     @Version
     private Long version;
 
-    public Event(Long eventId) {
-
+    public Event(Long eventId, Long version) {
+        this.setEventId(eventId);
+        this.setVersion(version);
     }
 }

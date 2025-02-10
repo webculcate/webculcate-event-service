@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static com.webculcate.eventservicecore.constant.ServiceConstant.ZERO_LONG;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -20,8 +22,8 @@ public class DefaultScheduledEventFactory implements IScheduledEventFactory {
     @Override
     public ScheduledEvent generateScheduledEvent(CreateEventScheduleRequest request) {
         return ScheduledEvent.builder()
-                .event(new Event(request.getEventId()))
-                .venue(new Venue(request.getVenueId()))
+                .event(new Event(request.getEventId(), ZERO_LONG))
+                .venue(new Venue(request.getVenueId(), ZERO_LONG))
                 .timeRange(new TimeRange(request.getTimeRange().getStartTime(), request.getTimeRange().getEndTime()))
                 .organisedBy(request.getOrganisedBy())
                 .status(ScheduledEventStatus.SCHEDULED)

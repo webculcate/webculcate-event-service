@@ -3,6 +3,7 @@ package com.webculcate.eventservicecore.model.dto.scheduledevent;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.webculcate.eventservicecore.constant.ScheduledEventStatus;
 import com.webculcate.eventservicecore.model.dto.event.EventDto;
+import com.webculcate.eventservicecore.model.dto.general.TimeLogDto;
 import com.webculcate.eventservicecore.model.dto.venue.VenueDto;
 import com.webculcate.eventservicecore.model.entity.Event;
 import com.webculcate.eventservicecore.model.entity.Venue;
@@ -36,14 +37,14 @@ public class ScheduledEventDto {
 
     private ScheduledEventStatus status;
 
-    private TimeLog timeLog;
+    private TimeLogDto timeLog;
 
     public static ScheduledEventDto initializeBlankScheduledEventDto() {
         return ScheduledEventDto.builder()
-                .event(new EventDto())
-                .venue(new VenueDto())
+                .event(EventDto.initializeBlankEventDto())
+                .venue(VenueDto.initializeBlankVenueDto())
                 .timeRange(new TimeRange())
-                .timeLog(new TimeLog())
+                .timeLog(new TimeLogDto())
                 .build();
     }
 }

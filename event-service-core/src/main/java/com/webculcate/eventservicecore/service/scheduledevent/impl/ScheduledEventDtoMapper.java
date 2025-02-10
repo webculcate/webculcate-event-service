@@ -24,7 +24,9 @@ public class ScheduledEventDtoMapper implements IScheduledEventDtoMapper {
         ScheduledEventDto scheduledEventDto = ScheduledEventDto.initializeBlankScheduledEventDto();
         copyProperties(scheduledEvent, scheduledEventDto);
         copyProperties(scheduledEvent.getEvent(), scheduledEventDto.getEvent());
+        copyProperties(scheduledEvent.getEvent().getTimeLog(), scheduledEventDto.getEvent().getTimeLog());
         copyProperties(scheduledEvent.getVenue(), scheduledEventDto.getVenue());
+        copyProperties(scheduledEvent.getVenue().getTimeLog(), scheduledEventDto.getVenue().getTimeLog());
         copyProperties(scheduledEvent.getTimeRange(), scheduledEventDto.getTimeRange());
         copyProperties(scheduledEvent.getTimeLog(), scheduledEventDto.getTimeLog());
         scheduledEventDto.setOrganisedBy(userService.resolveUsers(scheduledEvent.getOrganisedBy()));

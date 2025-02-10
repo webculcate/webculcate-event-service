@@ -35,14 +35,14 @@ public class ScheduledEvent {
     )
     private Long scheduledEventId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(
             name = EVENT_FOREIGN_KEY,
             referencedColumnName = "eventId"
     )
     private Event event;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(
             name = VENUE_FOREIGN_KEY,
             referencedColumnName = "venueId"
@@ -52,7 +52,7 @@ public class ScheduledEvent {
     @Embedded
     private TimeRange timeRange;
 
-    private Set<String> organisedBy;
+    private Set<Long> organisedBy;
 
     private ScheduledEventStatus status;
 

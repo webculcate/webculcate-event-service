@@ -42,7 +42,8 @@ public class Venue {
     @Version
     private Long version;
 
-    public Venue(Long venueId) {
-
+    public Venue(Long venueId, Long version) {
+        this.setVenueId(venueId);
+        this.setVersion(version);
     }
 }

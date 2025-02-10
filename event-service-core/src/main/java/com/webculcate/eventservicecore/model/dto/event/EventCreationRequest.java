@@ -17,6 +17,6 @@ public class EventCreationRequest {
 
     private String eventDescription;
 
-    private String createdBy;
+    private Long createdBy;
 
 }

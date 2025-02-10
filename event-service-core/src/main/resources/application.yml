@@ -1,6 +1,6 @@
 spring:
   application:
-    name: EVENT_SERVICE_CORE
+    name: EVENT-SERVICE-CORE
   datasource:
     url: ${DATA_SOURCE_URL}
     username: ${DATA_SOURCE_USERNAME}

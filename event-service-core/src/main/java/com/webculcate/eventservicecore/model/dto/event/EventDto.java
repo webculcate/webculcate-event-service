@@ -21,7 +21,7 @@ public class EventDto {
 
     private String eventDescription;
 
-    private String createdBy;
+    private Long createdBy;
 
     private TimeLogDto timeLog;
 

@@ -22,6 +22,6 @@ public class CreateEventScheduleRequest {
 
     private TimeRangeDto timeRange;
 
-    private Set<String> organisedBy;
+    private Set<Long> organisedBy;
 
 }

@@ -26,6 +26,8 @@ public class ServiceConstant {
 
     public static final String STRING_SPACE = " ";
 
+    public static final Long ZERO_LONG = 0L;
+
     // external
-    public static final String USER_SERVICE_NAME = "USER_SERVICE_CORE";
+    public static final String USER_SERVICE_NAME = "USER-SERVICE-CORE";
 }
