@@ -29,5 +29,5 @@ public class ServiceConstant {
     public static final Long ZERO_LONG = 0L;
 
     // external
-    public static final String USER_SERVICE_NAME = "USER-SERVICE-CORE";
+    public static final String WEBCULCATE_USER_SERVICE = "WEBCULCATE-USER-SERVICE-CORE";
 }

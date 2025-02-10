@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import static com.webculcate.eventservicecore.constant.ServiceConstant.USER_SERVICE_NAME;
+import static com.webculcate.eventservicecore.constant.ServiceConstant.WEBCULCATE_USER_SERVICE;
 
-@FeignClient(name = USER_SERVICE_NAME)
+@FeignClient(name = WEBCULCATE_USER_SERVICE)
 public interface UserServiceClient {
 
     @GetMapping("/user/v1/{id}")

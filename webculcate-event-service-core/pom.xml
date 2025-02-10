@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.webculcate</groupId>
-	<artifactId>event-service-core</artifactId>
+	<artifactId>webculcate-event-service-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>event-service-core</name>
+	<name>webculcate-event-service-core</name>
 	<description>webculcate event service core</description>
 	<url/>
 	<licenses>

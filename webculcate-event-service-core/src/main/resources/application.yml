@@ -1,6 +1,6 @@
 spring:
   application:
-    name: EVENT-SERVICE-CORE
+    name: WEBCULCATE-EVENT-SERVICE-CORE
   datasource:
     url: ${DATA_SOURCE_URL}
     username: ${DATA_SOURCE_USERNAME}
