@@ -1,8 +1,6 @@
 package com.webculcate.eventservicecore.controller.scheduledevent;
 
-import com.webculcate.eventservicecore.model.dto.event.*;
 import com.webculcate.eventservicecore.model.dto.scheduledevent.*;
-import com.webculcate.eventservicecore.service.event.IEventService;
 import com.webculcate.eventservicecore.service.scheduledevent.EventSchedulerServiceManager;
 import com.webculcate.eventservicecore.service.scheduledevent.IEventSchedulerService;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +32,12 @@ public class ScheduledEventController {
     public ResponseEntity<ScheduledEventResponse> scheduleEvent(@RequestBody CreateEventScheduleRequest request) {
         IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
         return new ResponseEntity<>(service.scheduleEvent(request), OK);
+    }
+
+    @PostMapping("/capacity")
+    public ResponseEntity<CapacityUpdateResponse> updateCapacity(@RequestBody CapacityUpdateRequest request) {
+        IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
+        return new ResponseEntity<>(service.updateCapacity(request), OK);
     }
 
     @PutMapping

@@ -32,4 +32,5 @@ public class ScheduledEventDtoMapper implements IScheduledEventDtoMapper {
         scheduledEventDto.setOrganisedBy(userService.resolveUsers(scheduledEvent.getOrganisedBy()));
         return scheduledEventDto;
     }
+
 }

@@ -28,6 +28,7 @@ public class DefaultScheduledEventFactory implements IScheduledEventFactory {
                 .organisedBy(request.getOrganisedBy())
                 .status(ScheduledEventStatus.SCHEDULED)
                 .timeLog(new TimeLog())
+                .capacity(request.getCapacity())
                 .build();
     }
 

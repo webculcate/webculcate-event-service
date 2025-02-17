@@ -1,31 +1,22 @@
 package com.webculcate.eventservicecore.model.dto.scheduledevent;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.webculcate.eventservicecore.model.entity.embedded.TimeRange;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreateEventScheduleRequest {
+public class CapacityUpdateResponse {
 
-    private Long eventId;
+    private Long scheduledEventId;
 
-    private Long venueId;
+    private Integer capacityAfterUpdate;
 
-    private TimeRangeDto timeRange;
-
-    private Set<Long> organisedBy;
-
-    private Integer capacity;
-
-    private Integer maxCapacity;
+    private Boolean success;
 
 }

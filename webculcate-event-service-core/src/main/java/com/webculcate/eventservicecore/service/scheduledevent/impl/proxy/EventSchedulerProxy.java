@@ -51,4 +51,10 @@ public class EventSchedulerProxy implements IEventSchedulerService {
         return eventSchedulerService.updateEventSchedule(request);
     }
 
+    @Override
+    public CapacityUpdateResponse updateCapacity(CapacityUpdateRequest request) {
+        // todo validation depending on type
+        return eventSchedulerService.updateCapacity(request);
+    }
+
 }

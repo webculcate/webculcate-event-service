@@ -19,6 +19,7 @@ public enum ServiceExceptionType {
     EVENT_ID_COUNT_EXCEEDED("Event id count exceeded"),
 
     // scheduled event
+    INVALID_EVENT_SCHEDULE_CREATION_REQUEST("Event schedule creation request invalid"),
     SCHEDULED_EVENT_NOT_AVAILABLE("Scheduled event not found");
 
     private final String message;

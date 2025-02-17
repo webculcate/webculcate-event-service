@@ -37,6 +37,10 @@ public class ScheduledEventDto {
 
     private ScheduledEventStatus status;
 
+    private Integer capacity;
+
+    private Integer maxCapacity;
+
     private TimeLogDto timeLog;
 
     public static ScheduledEventDto initializeBlankScheduledEventDto() {

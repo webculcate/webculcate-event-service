@@ -24,10 +24,15 @@ public class ServiceConstant {
 
     public static final String PROXY_ENABLED = "${application.proxy.enabled}";
 
+    public static final String WEBCULCATE_GROUP_ID = "${spring.kafka.consumer.group-id}";
+
     public static final String STRING_SPACE = " ";
 
     public static final Long ZERO_LONG = 0L;
 
     // external
     public static final String WEBCULCATE_USER_SERVICE = "WEBCULCATE-USER-SERVICE-CORE";
+
+    // topic
+    public static final String WEBCULCATE_TOPIC_CAPACITY_REDUCTION_ROLLBACK = "webculcateCapacityReductionRollback";
 }

@@ -56,6 +56,10 @@ public class ScheduledEvent {
 
     private ScheduledEventStatus status;
 
+    private Integer capacity;
+
+    private Integer maxCapacity;
+
     @Embedded
     private TimeLog timeLog;
 

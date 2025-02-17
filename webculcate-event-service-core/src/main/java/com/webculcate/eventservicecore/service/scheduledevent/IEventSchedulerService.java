@@ -12,4 +12,6 @@ public interface IEventSchedulerService {
 
     ScheduledEventResponse updateEventSchedule(UpdateEventScheduleRequest request);
 
+    CapacityUpdateResponse updateCapacity(CapacityUpdateRequest request);
+
 }
