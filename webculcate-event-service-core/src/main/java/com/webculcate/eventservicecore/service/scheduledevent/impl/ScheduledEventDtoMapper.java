@@ -1,6 +1,5 @@
 package com.webculcate.eventservicecore.service.scheduledevent.impl;
 
-import com.webculcate.eventservicecore.model.dto.event.EventDto;
 import com.webculcate.eventservicecore.model.dto.scheduledevent.ScheduledEventDto;
 import com.webculcate.eventservicecore.model.entity.ScheduledEvent;
 import com.webculcate.eventservicecore.service.external.user.UserServiceExt;
@@ -9,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import static com.webculcate.eventservicecore.constant.EventSchedulerStrategyType.DEFAULT_EVENT_SCHEDULER_SERVICE;
+import static java.util.Objects.nonNull;
 import static org.springframework.beans.BeanUtils.copyProperties;
 
 @Slf4j
@@ -23,12 +22,20 @@ public class ScheduledEventDtoMapper implements IScheduledEventDtoMapper {
     public ScheduledEventDto mapToScheduledEventDto(ScheduledEvent scheduledEvent) {
         ScheduledEventDto scheduledEventDto = ScheduledEventDto.initializeBlankScheduledEventDto();
         copyProperties(scheduledEvent, scheduledEventDto);
-        copyProperties(scheduledEvent.getEvent(), scheduledEventDto.getEvent());
-        copyProperties(scheduledEvent.getEvent().getTimeLog(), scheduledEventDto.getEvent().getTimeLog());
-        copyProperties(scheduledEvent.getVenue(), scheduledEventDto.getVenue());
-        copyProperties(scheduledEvent.getVenue().getTimeLog(), scheduledEventDto.getVenue().getTimeLog());
-        copyProperties(scheduledEvent.getTimeRange(), scheduledEventDto.getTimeRange());
-        copyProperties(scheduledEvent.getTimeLog(), scheduledEventDto.getTimeLog());
+        if (nonNull(scheduledEvent.getEvent()) && nonNull(scheduledEventDto.getEvent())) {
+            copyProperties(scheduledEvent.getEvent(), scheduledEventDto.getEvent());
+            if (nonNull(scheduledEvent.getEvent().getTimeLog()) && nonNull(scheduledEventDto.getEvent().getTimeLog()))
+                copyProperties(scheduledEvent.getEvent().getTimeLog(), scheduledEventDto.getEvent().getTimeLog());
+        }
+        if (nonNull(scheduledEvent.getVenue()) && nonNull(scheduledEventDto.getVenue())) {
+            copyProperties(scheduledEvent.getVenue(), scheduledEventDto.getVenue());
+            if (nonNull(scheduledEvent.getVenue().getTimeLog()) && nonNull(scheduledEventDto.getVenue().getTimeLog()))
+                copyProperties(scheduledEvent.getVenue().getTimeLog(), scheduledEventDto.getVenue().getTimeLog());
+        }
+        if (nonNull(scheduledEvent.getTimeRange()) && nonNull(scheduledEventDto.getTimeRange()))
+            copyProperties(scheduledEvent.getTimeRange(), scheduledEventDto.getTimeRange());
+        if (nonNull(scheduledEvent.getTimeLog()) && nonNull(scheduledEventDto.getTimeLog()))
+            copyProperties(scheduledEvent.getTimeLog(), scheduledEventDto.getTimeLog());
         scheduledEventDto.setOrganisedBy(userService.resolveUsers(scheduledEvent.getOrganisedBy()));
         return scheduledEventDto;
     }

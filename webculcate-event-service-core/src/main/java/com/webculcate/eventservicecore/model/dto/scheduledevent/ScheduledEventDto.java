@@ -5,9 +5,6 @@ import com.webculcate.eventservicecore.constant.ScheduledEventStatus;
 import com.webculcate.eventservicecore.model.dto.event.EventDto;
 import com.webculcate.eventservicecore.model.dto.general.TimeLogDto;
 import com.webculcate.eventservicecore.model.dto.venue.VenueDto;
-import com.webculcate.eventservicecore.model.entity.Event;
-import com.webculcate.eventservicecore.model.entity.Venue;
-import com.webculcate.eventservicecore.model.entity.embedded.TimeLog;
 import com.webculcate.eventservicecore.model.entity.embedded.TimeRange;
 import com.webculcate.eventservicecore.model.external.user.UserDto;
 import lombok.AllArgsConstructor;
@@ -16,7 +13,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder

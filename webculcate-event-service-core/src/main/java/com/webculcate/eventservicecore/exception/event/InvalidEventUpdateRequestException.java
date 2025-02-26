@@ -5,15 +5,16 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class InvalidEventCreationRequestException extends RuntimeException {
+public class InvalidEventUpdateRequestException extends RuntimeException {
 
     private List<String> messageList;
 
-    public InvalidEventCreationRequestException(String message) {
+    public InvalidEventUpdateRequestException(String message) {
         super(message);
     }
 
-    public InvalidEventCreationRequestException(List<String> messageList) {
+    public InvalidEventUpdateRequestException(List<String> messageList) {
         this.messageList = messageList;
     }
+
 }

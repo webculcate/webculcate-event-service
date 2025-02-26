@@ -2,7 +2,6 @@ package com.webculcate.eventservicecore.model.dto.event;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.webculcate.eventservicecore.model.dto.general.TimeLogDto;
-import com.webculcate.eventservicecore.model.dto.venue.VenueDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,6 +1,5 @@
 package com.webculcate.eventservicecore.service.scheduledevent;
 
-import com.webculcate.eventservicecore.service.event.IEventService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,8 +9,6 @@ import java.util.Map;
 
 import static com.webculcate.eventservicecore.constant.EventSchedulerStrategyType.DEFAULT_EVENT_SCHEDULER_SERVICE;
 import static com.webculcate.eventservicecore.constant.EventSchedulerStrategyType.EVENT_SCHEDULER_SERVICE_PROXY;
-import static com.webculcate.eventservicecore.constant.EventServiceStrategyType.DEFAULT_EVENT_SERVICE;
-import static com.webculcate.eventservicecore.constant.EventServiceStrategyType.EVENT_SERVICE_PROXY;
 import static com.webculcate.eventservicecore.constant.ServiceConstant.PROXY_ENABLED;
 
 @Slf4j

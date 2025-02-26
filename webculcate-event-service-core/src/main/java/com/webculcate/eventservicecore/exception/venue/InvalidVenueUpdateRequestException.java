@@ -5,15 +5,15 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class VenueNotAvailableException extends RuntimeException {
+public class InvalidVenueUpdateRequestException extends RuntimeException {
 
     private List<String> messageList;
 
-    public VenueNotAvailableException(String message) {
+    public InvalidVenueUpdateRequestException(String message) {
         super(message);
     }
 
-    public VenueNotAvailableException(List<String> messageList) {
+    public InvalidVenueUpdateRequestException(List<String> messageList) {
         this.messageList = messageList;
     }
 

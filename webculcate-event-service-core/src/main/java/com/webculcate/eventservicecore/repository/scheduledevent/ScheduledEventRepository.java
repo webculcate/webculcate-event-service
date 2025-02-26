@@ -1,7 +1,6 @@
 package com.webculcate.eventservicecore.repository.scheduledevent;
 
 
-import com.webculcate.eventservicecore.model.entity.Event;
 import com.webculcate.eventservicecore.model.entity.ScheduledEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

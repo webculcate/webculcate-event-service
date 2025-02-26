@@ -1,10 +1,6 @@
 package com.webculcate.eventservicecore.controller.event;
 
-import com.webculcate.eventservicecore.model.dto.event.EventUpdateRequest;
-import com.webculcate.eventservicecore.model.dto.event.EventCreationRequest;
-import com.webculcate.eventservicecore.model.dto.event.EventCreationResponse;
-import com.webculcate.eventservicecore.model.dto.event.EventDto;
-import com.webculcate.eventservicecore.model.dto.event.EventUpdateResponse;
+import com.webculcate.eventservicecore.model.dto.event.*;
 import com.webculcate.eventservicecore.service.event.EventServiceManager;
 import com.webculcate.eventservicecore.service.event.IEventService;
 import lombok.RequiredArgsConstructor;

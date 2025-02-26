@@ -1,7 +1,6 @@
 package com.webculcate.eventservicecore.service.scheduledevent.strategy.impl;
 
 import com.webculcate.eventservicecore.exception.scheduledevent.CapacityOverflowException;
-import com.webculcate.eventservicecore.exception.scheduledevent.InsufficientCapacityException;
 import com.webculcate.eventservicecore.model.dto.scheduledevent.CapacityUpdateRequest;
 import com.webculcate.eventservicecore.model.entity.ScheduledEvent;
 import com.webculcate.eventservicecore.service.scheduledevent.strategy.ICapacityUpdateService;

@@ -5,15 +5,15 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class InvalidCreateEventScheduleRequestException extends RuntimeException {
+public class InvalidCapacityUpdateRequestException extends RuntimeException {
 
     private List<String> messageList;
 
-    public InvalidCreateEventScheduleRequestException(String message) {
+    public InvalidCapacityUpdateRequestException(String message) {
         super(message);
     }
 
-    public InvalidCreateEventScheduleRequestException(List<String> errorMessageList) {
+    public InvalidCapacityUpdateRequestException(List<String> errorMessageList) {
         this.messageList = errorMessageList;
     }
 

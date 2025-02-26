@@ -1,7 +1,10 @@
 package com.webculcate.eventservicecore.model.dto.scheduledevent;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.webculcate.eventservicecore.model.entity.embedded.TimeRange;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,16 +19,26 @@ import java.util.Set;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CreateEventScheduleRequest {
 
+    @NotNull
     private Long eventId;
 
+    @NotNull
     private Long venueId;
 
+    @NotNull
+    @Valid
     private TimeRangeDto timeRange;
 
+    @NotNull
+    @NotEmpty
     private Set<Long> organisedBy;
 
+    @NotNull
+    @Min(0)
     private Integer capacity;
 
+    @NotNull
+    @Min(0)
     private Integer maxCapacity;
 
 }

@@ -1,11 +1,9 @@
 package com.webculcate.eventservicecore.service.event.impl.proxy;
 
 import com.webculcate.eventservicecore.exception.event.InvalidEventCreationRequestException;
-import com.webculcate.eventservicecore.exception.venue.InvalidVenueCreationRequestException;
+import com.webculcate.eventservicecore.exception.event.InvalidEventUpdateRequestException;
 import com.webculcate.eventservicecore.model.dto.event.*;
-import com.webculcate.eventservicecore.model.dto.venue.VenueCreationRequest;
 import com.webculcate.eventservicecore.service.event.IEventService;
-import com.webculcate.eventservicecore.service.venue.IVenueService;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.RequiredArgsConstructor;
@@ -17,7 +15,6 @@ import java.util.Set;
 
 import static com.webculcate.eventservicecore.constant.EventServiceStrategyType.EVENT_SERVICE_PROXY;
 import static com.webculcate.eventservicecore.constant.ServiceConstant.STRING_SPACE;
-import static com.webculcate.eventservicecore.constant.VenueServiceStrategyType.VENUE_SERVICE_PROXY;
 
 @Slf4j
 @Service(EVENT_SERVICE_PROXY)
@@ -32,11 +29,10 @@ public class EventServiceProxy implements IEventService {
     public EventCreationResponse createEvent(EventCreationRequest request) {
         Set<ConstraintViolation<EventCreationRequest>> validationResults = serviceValidator.validate(request);
         if (!validationResults.isEmpty()) {
-            List<String> errorMessageList = validationResults.stream()
-                    .map(result -> result.getPropertyPath() + STRING_SPACE + result.getMessage())
-                    .toList();
+            List<String> errorMessageList = generateErrorMessageList(validationResults);
             throw new InvalidEventCreationRequestException(errorMessageList);
         }
+        log.info("Validation successful for createEvent");
         return eventService.createEvent(request);
     }
 
@@ -47,6 +43,18 @@ public class EventServiceProxy implements IEventService {
 
     @Override
     public EventUpdateResponse updateEvent(EventUpdateRequest request) {
+        Set<ConstraintViolation<EventUpdateRequest>> validationResults = serviceValidator.validate(request);
+        if (!validationResults.isEmpty()) {
+            List<String> errorMessageList = generateErrorMessageList(validationResults);
+            throw new InvalidEventUpdateRequestException(errorMessageList);
+        }
+        log.info("Validation successful for updateEvent");
         return eventService.updateEvent(request);
+    }
+
+    private <T> List<String> generateErrorMessageList(Set<ConstraintViolation<T>> validationResults) {
+        return validationResults.stream()
+                .map(result -> result.getPropertyPath() + STRING_SPACE + result.getMessage())
+                .toList();
     }
 }

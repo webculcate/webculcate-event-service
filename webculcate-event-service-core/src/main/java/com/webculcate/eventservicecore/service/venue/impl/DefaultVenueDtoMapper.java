@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static java.util.Objects.nonNull;
 import static org.springframework.beans.BeanUtils.copyProperties;
 
 @Slf4j
@@ -18,7 +19,8 @@ public class DefaultVenueDtoMapper implements IVenueDtoMapper {
     public VenueDto mapToVenueDto(Venue venue) {
         VenueDto venueDto = VenueDto.initializeBlankVenueDto();
         copyProperties(venue, venueDto);
-        copyProperties(venue.getTimeLog(), venueDto.getTimeLog());
+        if (nonNull(venue.getTimeLog()) && nonNull(venueDto.getTimeLog()))
+            copyProperties(venue.getTimeLog(), venueDto.getTimeLog());
         return venueDto;
     }
 

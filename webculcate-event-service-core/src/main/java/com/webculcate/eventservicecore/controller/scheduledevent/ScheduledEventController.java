@@ -22,7 +22,7 @@ public class ScheduledEventController {
         return new ResponseEntity<>(service.getScheduledEvent(id), OK);
     }
 
-    @GetMapping("/conflicts")
+    @PostMapping("/conflicts")
     public ResponseEntity<EventConflictResponse> getEventConflicts(@RequestBody TimeRangeDto timeRange) {
         IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
         return new ResponseEntity<>(service.getEventConflicts(timeRange), OK);
@@ -34,7 +34,7 @@ public class ScheduledEventController {
         return new ResponseEntity<>(service.scheduleEvent(request), OK);
     }
 
-    @PostMapping("/capacity")
+    @PutMapping("/capacity")
     public ResponseEntity<CapacityUpdateResponse> updateCapacity(@RequestBody CapacityUpdateRequest request) {
         IEventSchedulerService service = eventSchedulerServiceManager.getEventSchedulerService();
         return new ResponseEntity<>(service.updateCapacity(request), OK);

@@ -8,7 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import static com.webculcate.eventservicecore.constant.ServiceConstant.*;
+import static com.webculcate.eventservicecore.constant.ServiceConstant.VENUE_SEQUENCE_NAME;
+import static com.webculcate.eventservicecore.constant.ServiceConstant.VENUE_TABLE_NAME;
 
 @Data
 @Builder
@@ -31,9 +32,11 @@ public class Venue {
     )
     private Long venueId;
 
+    @Column(nullable = false)
     private String venueName;
 
     // TODO make it a separate entity Address
+    @Column(nullable = false)
     private String venueAddress;
 
     @Embedded

@@ -17,7 +17,13 @@ import static com.webculcate.eventservicecore.constant.ServiceConstant.*;
 @Data
 @Builder
 @Entity
-@Table(name = SCHEDULED_EVENT_TABLE_NAME)
+@Table(
+        name = SCHEDULED_EVENT_TABLE_NAME,
+        indexes = {
+                @Index(columnList = START_TIME_COLUMN_NAME + INDEX_ASCENDING_SUFFIX, name = START_TIME_INDEX),
+                @Index(columnList = END_TIME_COLUMN_NAME + INDEX_ASCENDING_SUFFIX, name = END_TIME_INDEX)
+        }
+)
 @NoArgsConstructor
 @AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
@@ -52,12 +58,16 @@ public class ScheduledEvent {
     @Embedded
     private TimeRange timeRange;
 
+    @Column(nullable = false)
     private Set<Long> organisedBy;
 
+    @Column(nullable = false)
     private ScheduledEventStatus status;
 
+    @Column(nullable = false)
     private Integer capacity;
 
+    @Column(nullable = false)
     private Integer maxCapacity;
 
     @Embedded

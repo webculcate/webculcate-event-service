@@ -9,6 +9,10 @@ public class InvalidVenueCreationRequestException extends RuntimeException {
 
     private List<String> messageList;
 
+    public InvalidVenueCreationRequestException(String message) {
+        super(message);
+    }
+
     public InvalidVenueCreationRequestException(List<String> messageList) {
         this.messageList = messageList;
     }
