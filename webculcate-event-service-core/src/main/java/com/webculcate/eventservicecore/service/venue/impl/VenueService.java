@@ -52,4 +52,5 @@ public class VenueService implements IVenueService {
         return new VenueUpdateResponse(venueDtoMapper.mapToVenueDto(savedVenue));
     }
 
+
 }
